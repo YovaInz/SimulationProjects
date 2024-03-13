@@ -89,67 +89,74 @@ public class num_random {
         } while (opcion != 3);
     }
 
-    public static void medios_teclado() {
-        ArrayList<Integer> numerosGenerados = new ArrayList<>();
-        boolean repetido = true, escero = false;
-        System.out.print("x0 = ");
-        int semilla = leer.nextInt(),
-                x1 = 0, cont = 1;
-        String cadena_x1 = "";
-        do {
-            x1 = (int) Math.pow(semilla, 2); // se eleva x1 al cuadrado
-            // System.out.println(x1);
-            cadena_x1 = Integer.toString(x1);
-            if (cadena_x1.length() < 8) {
-                cadena_x1 = contarDigitos(cadena_x1);
-            }
-            cadena_x1 = cadena_x1.substring(2, 6);// toma los digitos del medio
-            x1 = Integer.valueOf(cadena_x1);// se convierten los digitos del medio de string a int
-            System.out.println("x" + cont + " = " + cadena_x1);// se imprime el numero nuevo generado
-            if (!numerosGenerados.contains(x1)) {
-                numerosGenerados.add(x1); // Agrega el nuevo número si no está repetido
-            } else {
-                repetido = false;
-            }
-            if (cadena_x1.charAt(0) == '0') {
-                escero = true;
-            }
-            semilla = x1;
-            cont++;
-        } while (escero == false && repetido == true);
-    }
+    public static void medios_teclado(){
+        ArrayList<Integer> numerosGenerados = new ArrayList<>(); //array con todos los numeros generados
+        boolean repetido=false,escero=false;//comprobantes de numero repetido 
+        int semilla=0,xv=0,xn=0,contadorx=1;
+        
+        System.out.println("Coloque el numero semilla de 4 digitos:");
+        semilla=leer.nextInt();
+        xv=semilla;
+        System.out.println("-------------------------------");
+        System.out.println("El numero semilla es:"+semilla);
+        String cadena_xn="";
+            do {
+                xn=(int)Math.pow(xv,2); //se eleva xn al cuadrado
+                cadena_xn= Integer.toString(xn);
+                if (cadena_xn.length()<8) {
+                cadena_xn=contarDigitos(cadena_xn);
+                }
+                cadena_xn=cadena_xn.substring(2,6);//toma los digitos del medio
+                xn=Integer.valueOf(cadena_xn);//se convierten los digitos del medio de string a int
 
-    public static void medios_random() {
-        ArrayList<Integer> numerosGenerados = new ArrayList<>();
-        boolean repetido = true, escero = false;
-        int semilla = (int) (Math.random() * (9999 - 1000 + 1) + 1000),
-                x1 = 0, cont = 0;
-        System.out.println("x0 = " + semilla);
-        String cadena_x1 = "";
+                System.out.println("x"+contadorx+":"+cadena_xn);//se imprime el numero nuevo generado
 
-        do {
-            x1 = (int) Math.pow(semilla, 2); // se eleva x1 al cuadrado
-            // System.out.println(x1);
-            cadena_x1 = Integer.toString(x1);
-            if (cadena_x1.length() < 8) {
-                cadena_x1 = contarDigitos(cadena_x1);
-            }
-            cadena_x1 = cadena_x1.substring(2, 6);// toma los digitos del medio
-            x1 = Integer.valueOf(cadena_x1);// se convierten los digitos del medio de string a int
-            System.out.println("x" + cont + " = " + cadena_x1);// se imprime el numero nuevo generado
-            if (!numerosGenerados.contains(x1)) {
-                numerosGenerados.add(x1); // Agrega el nuevo número si no está repetido
-            } else {
-                repetido = false;
-            }
-            if (cadena_x1.charAt(0) == '0') {
-                escero = true;
-            }
-            semilla = x1;
-            cont++;
-        } while (escero == false && repetido == true);
+                if (!numerosGenerados.contains(xn)) {//comprueba si el numero no esta repetido
+                numerosGenerados.add(xn); // Agrega el nuevo número si no está repetido
+                }else{
+                repetido=true;//el numero es repetido y saldra del do while
+                }
+                if (cadena_xn=="0000"){//comprobante si los 4 digitos son igual a cero
+                escero=true;
+                }
+                xv=xn;
+                contadorx++;
+            } while (escero==false&&repetido==false);
+     }
 
-    }
+    public static void medios_random(){
+        ArrayList<Integer> numerosGenerados = new ArrayList<>(); //array con todos los numeros generados
+        boolean repetido=false,escero=false;//comprobantes de numero repetido 
+        int semilla=(int)(Math.random() * (9999 - 1000 + 1) + 1000),
+        xv=semilla;
+        int xn=0,contadorx=0;
+        System.out.println(semilla);
+        String cadena_xn="";
+            do {
+                xn=(int)Math.pow(xv,2); //se eleva xn al cuadrado
+                cadena_xn= Integer.toString(xn);
+                if (cadena_xn.length()<8) {
+                cadena_xn=contarDigitos(cadena_xn);
+                }
+                cadena_xn=cadena_xn.substring(2,6);//toma los digitos del medio
+                xn=Integer.valueOf(cadena_xn);//se convierten los digitos del medio de string a int
+
+                
+
+                if (!numerosGenerados.contains(xn)) {//comprueba si el numero no esta repetido
+                numerosGenerados.add(xn); // Agrega el nuevo número si no está repetido
+                }else{
+                repetido=true;//el numero es repetido y saldra del do while
+                }
+                if (cadena_xn=="0000"){//comprobante si los 4 digitos son igual a cero
+                escero=true;
+                }
+                System.out.println("x"+contadorx+":"+cadena_xn);//se imprime el numero nuevo generado
+                xv=xn;
+                contadorx++;
+            } while (escero==false&&repetido==false);
+        
+     }
 
     public static void newman_teclado() {
         ArrayList<Long> NewmanList = new ArrayList<>();
