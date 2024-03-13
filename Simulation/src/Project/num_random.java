@@ -17,7 +17,7 @@ public class num_random {
             System.out.println("2.-Newman");
             System.out.println("3.-Salir");
             System.out.println("------------------------------");
-            System.out.println("Introduzca la opcion:");
+            System.out.print("Introduzca la opcion: ");
             opcion = leer.nextInt();
             switch (opcion) {
                 case 1:
@@ -44,7 +44,7 @@ public class num_random {
             System.out.println("2.-Semilla random");
             System.out.println("3.-Salir");
             System.out.println("------------------------------");
-            System.out.println("Introduzca la opcion:");
+            System.out.print("Introduzca la opcion: ");
             opcion = leer.nextInt();
             switch (opcion) {
                 case 1:
@@ -72,7 +72,7 @@ public class num_random {
             System.out.println("2.-Semilla random");
             System.out.println("3.-Salir");
             System.out.println("------------------------------");
-            System.out.print("Introduzca la opcion:");
+            System.out.print("Introduzca la opcion: ");
             opcion = leer.nextInt();
             switch (opcion) {
                 case 1:
@@ -92,17 +92,20 @@ public class num_random {
     public static void medios_teclado() {
         ArrayList<Integer> numerosGenerados = new ArrayList<>();
         boolean repetido = true, escero = false;
-        System.out.print("Introduce la semilla: ");
-        int semilla = leer.nextInt();
-        int x1 = 0;
-        System.out.println(semilla);
-        String cadena_semilla = Integer.toString(semilla),
-                cadena_x1 = "";
+        System.out.print("x0 = ");
+        int semilla = leer.nextInt(),
+                x1 = 0, cont = 1;
+        String cadena_x1 = "";
         do {
-            x1 = (int) Math.pow(semilla, 2);
+            x1 = (int) Math.pow(semilla, 2); // se eleva x1 al cuadrado
+            // System.out.println(x1);
             cadena_x1 = Integer.toString(x1);
-            String cadena_x1_actualizada = contarDigitos(cadena_x1);
-            System.out.println(cadena_x1_actualizada);
+            if (cadena_x1.length() < 8) {
+                cadena_x1 = contarDigitos(cadena_x1);
+            }
+            cadena_x1 = cadena_x1.substring(2, 6);// toma los digitos del medio
+            x1 = Integer.valueOf(cadena_x1);// se convierten los digitos del medio de string a int
+            System.out.println("x" + cont + " = " + cadena_x1);// se imprime el numero nuevo generado
             if (!numerosGenerados.contains(x1)) {
                 numerosGenerados.add(x1); // Agrega el nuevo número si no está repetido
             } else {
@@ -111,6 +114,8 @@ public class num_random {
             if (cadena_x1.charAt(0) == '0') {
                 escero = true;
             }
+            semilla = x1;
+            cont++;
         } while (escero == false && repetido == true);
     }
 
@@ -118,8 +123,8 @@ public class num_random {
         ArrayList<Integer> numerosGenerados = new ArrayList<>();
         boolean repetido = true, escero = false;
         int semilla = (int) (Math.random() * (9999 - 1000 + 1) + 1000),
-                x1 = 0;
-        System.out.println(semilla);
+                x1 = 0, cont = 0;
+        System.out.println("x0 = " + semilla);
         String cadena_x1 = "";
 
         do {
@@ -131,7 +136,7 @@ public class num_random {
             }
             cadena_x1 = cadena_x1.substring(2, 6);// toma los digitos del medio
             x1 = Integer.valueOf(cadena_x1);// se convierten los digitos del medio de string a int
-            System.out.println(cadena_x1);// se imprime el numero nuevo generado
+            System.out.println("x" + cont + " = " + cadena_x1);// se imprime el numero nuevo generado
             if (!numerosGenerados.contains(x1)) {
                 numerosGenerados.add(x1); // Agrega el nuevo número si no está repetido
             } else {
@@ -141,6 +146,7 @@ public class num_random {
                 escero = true;
             }
             semilla = x1;
+            cont++;
         } while (escero == false && repetido == true);
 
     }
