@@ -17,6 +17,11 @@ public class trials {
     private static float rand;
 
     public static void main(String[] args) {
+        rand = 0.00f;
+
+        int trunc = (int) (rand * 6) + 1;
+        System.out.println(trunc);
+
         do {
             System.out.print("======= ¿QUÉ OBJETO DESEA LANZAR? =======\n1.- Moneda\n2.- Dado\nInput: ");
             op = input.nextInt();
