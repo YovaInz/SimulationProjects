@@ -60,8 +60,8 @@ public class LanzarMD {
             }
         }
 
-        dataset.setValue("Águila", aguila);
-        dataset.setValue("Sello", sello);
+        dataset.setValue("Águila (" + aguila + " veces)", aguila);
+        dataset.setValue("Sello (" + sello + " veces)", sello);
 
         JFreeChart pieChart = ChartFactory.createPieChart("LANZAMIENTO DE MONEDA", dataset);
 
@@ -72,7 +72,6 @@ public class LanzarMD {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
 
     public static void Dado() {
@@ -108,12 +107,12 @@ public class LanzarMD {
             }
         }
 
-        dataset.setValue("1", uno);
-        dataset.setValue("2", dos);
-        dataset.setValue("3", tres);
-        dataset.setValue("4", cuatro);
-        dataset.setValue("5", cinco);
-        dataset.setValue("6", seis);
+        dataset.setValue("1 (" + uno + " veces)", uno);
+        dataset.setValue("2 (" + dos + " veces)", dos);
+        dataset.setValue("3 (" + tres + " veces)", tres);
+        dataset.setValue("4 (" + cuatro + " veces)", cuatro);
+        dataset.setValue("5 (" + cinco + " veces)", cinco);
+        dataset.setValue("6 (" + seis + " veces)", seis);
 
         JFreeChart pieChart = ChartFactory.createPieChart("LANZAMIENTO DE DADO", dataset);
 
