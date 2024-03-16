@@ -1,47 +1,81 @@
 package Project;
 
-import java.util.ArrayList;
-//import java.util.Scanner;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
+import javax.swing.*;
+import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class trials {
-    // private static Scanner leer = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
+    private static int op, x;
+    private static DecimalFormat df = new DecimalFormat("0.00");
+    private static float rand;
 
     public static void main(String[] args) {
-        ArrayList<Long> NewmanList = new ArrayList<>();
-        boolean repetido = false, escero = false;
-        long semilla = (long) (Math.random() * 9_000_000_000L) + 1_000_000_000L;
-        System.out.println("x0 = " + semilla);
-        String str = Newman(Long.toString(semilla * semilla));
-        NewmanList.add(Long.parseLong(str));
-        int cont = 1;
         do {
-            long x = Long.parseLong(str);
-            System.out.println("x" + cont + " = " + x);
-            str = Newman(Long.toString(x * x));
-            cont++;
-            if (!NewmanList.contains(Long.parseLong(str))) {
-                NewmanList.add(Long.parseLong(str));
+            System.out.print("======= ¿QUÉ OBJETO DESEA LANZAR? =======\n1.- Moneda\n2.- Dado\nInput: ");
+            op = input.nextInt();
+            switch (op) {
+                case 1:
+                    Moneda();
+                    break;
+                case 2:
+                    Dado();
+                    break;
+                default:
+                    System.err.println("Error: valor incorrecto, ingrese un valor entre 1 y 3");
+                    break;
+            }
+        } while (op != 3);
+    }
+
+    public static void Moneda() {
+        System.out.print("\n========= MONEDA =========\nCuantas veces desea lanzar la moneda? ");
+        int aguila = 0, sello = 0;
+        x = input.nextInt();
+
+        // Crear un dataset para la gráfica de pastel
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        for (int i = 1; i <= x; i++) {
+            rand = Float.parseFloat(df.format(Math.random()));
+            if (rand > 0.5) {
+                sello++;
             } else {
-                System.out.println("x" + cont + " = " + str + "   ===REPETIDOOOO===");
-                repetido = true;
+                aguila++;
             }
-            if (str.charAt(0) == '0') {
-                System.out.println("x" + cont + " = " + str + "   ===ES CEROOOOO===");
-                escero = true;
-            }
-        } while (repetido == false && escero == false);
-    }
-
-    public static String Newman(String str) {
-        if (str.length() % 2 == 0)
-            str = "0" + str;
-
-        StringBuilder sb = new StringBuilder(str);
-        while (sb.length() != 5) {
-            sb.deleteCharAt(sb.length() - 1);
-            sb.deleteCharAt(0);
         }
-        return sb.toString();
+
+        // Agregar los valores al dataset
+        dataset.setValue("Águila", aguila);
+        dataset.setValue("Sello", sello);
+
+        // Crear la gráfica de pastel
+        JFreeChart pieChart = ChartFactory.createPieChart(
+                "Resultados del lanzamiento de la moneda", dataset, true, true, true);
+
+        // Mostrar la gráfica en una ventana
+        JFrame frame = new JFrame("Gráfica de Pastel");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.add(new ChartPanel(pieChart) {
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(600, 400);
+            }
+        });
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
+    public static void Dado() {
+        System.out.print("\n========= DADO =========\nCuantas veces desea lanzar el dado? ");
+        x = input.nextInt();
+        // Implementa la lógica para el lanzamiento del dado aquí
+    }
 }
