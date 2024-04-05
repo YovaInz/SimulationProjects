@@ -6,7 +6,6 @@ public class BlackJack {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int players = input.nextInt();
-        boolean winner = false;
         int[][] handPlayer = new int[players][5];
         char[] maso = { 'A', 'A', 'A', 'A', '1', '1', '1', '1', '2', '2', '2', '2', '3', '3', '3', '3', '4', '4', '4',
                 '4',
@@ -28,49 +27,102 @@ public class BlackJack {
             System.out.println(
                     "Jugador #" + (i + 1) + ": [" + (char) handPlayer[i][0] + "][" + (char) handPlayer[i][1] + "]");
         }
-        while (!winner) {
+        int turn = 0, stay = 0, house = 0, winNumber;
+        int[] newCard = new int[players], hand = new int[players];
+        boolean[] toStay = new boolean[players], out = new boolean[players];
+        boolean houseWin = true;
+        while (stay != players) {
+            turn++;
             for (int i = 0; i < players; i++) {
-                System.out.println("Turno del jugador #" + (i + 1));
-                int card1 = 0, card2 = 0, card3 = 0, hand;
-                switch (handPlayer[i][0]) {
-                    case 65:
-                        card1 = 11;
-                        break;
-                    case 49, 50, 51, 52, 53, 54, 55, 56, 57:
-                        card1 = Integer.parseInt((char) handPlayer[i][0] + "");
-                        break;
-                    case 74, 75, 81:
-                        card1 = 10;
-                    default:
-                        break;
+                if (toStay[i] || out[i])
+                    continue;
+                int card1 = convertCard(handPlayer, i, 0), card2 = convertCard(handPlayer, i, 1);
+                hand[i] = card1 + card2 + newCard[i];
+                if (turn == 1) {
+                    System.out.println("Mano inicial del jugador #" + (i + 1) + ": " + hand[i]);
+                    continue;
                 }
-                switch (handPlayer[i][1]) {
-                    case 65:
-                        card2 = 11;
-                        break;
-                    case 49, 50, 51, 52, 53, 54, 55, 56, 57:
-                        card2 = Integer.parseInt((char) handPlayer[i][1] + "");
-                        break;
-                    case 74, 75, 81:
-                        card2 = 10;
-                    default:
-                        break;
+                System.out.println("===========================================");
+                System.out.println("Turno del jugador #" + (i + 1) + "\n-mano actual: " + hand[i]);
+                if (hand[i] == 21) {
+                    System.out.println("BLACK JACK");
+                    stay++;
+                    toStay[i] = true;
                 }
-                System.out.println(card1 + " : " + card2);
-                hand = card1 + card2 + card3;
-                if (hand == 21)
-                    winner = true;
-                if (hand < 19) {
-                    handPlayer[i][2] = maso[(int) (Math.random() * 52)];
-                    card3 = Integer.parseInt((char) handPlayer[i][2] + "");
+                if (hand[i] < 19) {
+                    handPlayer[i][turn] = maso[(int) (Math.random() * 52)];
+                    newCard[i] = convertCard(handPlayer, i, turn);
+                    hand[i] += newCard[i];
+                    System.out.println("-nueva carta: " + (char) handPlayer[i][turn] + " \n-nueva mano: " + hand[i]);
                 }
-                if (hand >= 19 && hand <= 21)
-                    winner = true;
-                if (hand > 21)
+                if (hand[i] >= 19 && hand[i] <= 21 && toStay[i] != true) {
+                    stay++;
+                    toStay[i] = true;
+                    System.out.println("Se planta");
+                }
+                if (hand[i] > 21) {
                     System.out.println("perdió el jugador #" + (i + 1));
+                    out[i] = true;
+                    stay++;
+                }
             }
         }
 
+        for (int i = 0; i < players; i++) {
+            if (toStay[i])
+                System.out.println("jugador #" + (i + 1) + " se quedó con " + hand[i]);
+            else if (out[i])
+                System.out.println("jugador #" + (i + 1) + " se pasó con " + hand[i]);
+        }
+
+        while (house < 20) {
+            char cardHouse = maso[(int) (Math.random() * 52)];
+            switch (cardHouse) {
+                case 65:
+                    house += 11;
+                    break;
+                case 49, 50, 51, 52, 53, 54, 55, 56, 57:
+                    house += Integer.parseInt(cardHouse + "");
+                    break;
+                case 74, 75, 81:
+                    house += 10;
+                default:
+                    break;
+            }
+            System.out.println(cardHouse + " : " + house);
+        }
+        if (house == 21)
+            System.out.println("LA CASA GANA");
+        if (house < 21) {
+            for (int i = 0; i < players; i++) {
+                if (hand[i] >= house) {
+                    System.out.println("GANA JUGADOR #" + (i + 1));
+                    houseWin = false;
+                }
+            }
+            if (houseWin)
+                System.out.println("LA CASA GANA CON " + house);
+        }
+        if (house > 21) {
+            System.out.println("LA CASA SE PASÓ");
+        }
         input.close();
+    }
+
+    public static int convertCard(int[][] handPlayer, int player, int card) {
+        int value = 0;
+        switch (handPlayer[player][card]) {
+            case 65:
+                value = 11;
+                break;
+            case 49, 50, 51, 52, 53, 54, 55, 56, 57:
+                value = Integer.parseInt((char) handPlayer[player][card] + "");
+                break;
+            case 74, 75, 81:
+                value = 10;
+            default:
+                break;
+        }
+        return value;
     }
 }

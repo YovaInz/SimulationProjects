@@ -70,7 +70,7 @@ public class DominoGame {
             }
             currentPlayer = (currentPlayer + 1) % numPlayers;
         }
-
+        sc.close();
     }
 
 }
