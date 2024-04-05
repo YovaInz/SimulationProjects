@@ -80,7 +80,7 @@ public class BlackJack {
                 System.out.println("jugador #" + (i + 1) + " se pasó con " + hand[i]);
         }
         System.out.println("===========================================\nTurno de la casa");
-        while (house < 21) {
+        while (house < 19) {
             char cardHouse = maso[(int) (Math.random() * 52)];
             int value = 0;
             switch (cardHouse) {
@@ -97,15 +97,15 @@ public class BlackJack {
             }
             if (house == 20 && value == 11) {
                 house++;
+            } else if (house == 11 && value == 11) {
+                house++;
             } else {
                 house += value;
             }
             System.out.println("- Carta nueva: " + cardHouse + "\n- mano actual " + house + "\n");
         }
         System.out.println("===========================================");
-        if (house == 21)
-            System.out.println("LA CASA GANA");
-        if (house < 21) {
+        if (house <= 21) {
             for (int i = 0; i < players; i++) {
                 if (hand[i] >= house && hand[i] <= 21) {
                     System.out.println("GANA JUGADOR #" + (i + 1));
