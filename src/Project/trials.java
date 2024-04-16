@@ -6,11 +6,15 @@ public class trials {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        for (int i = 0; i < 400; i++) {
-            if (i >= 100 && i <= 300 && i % 50 == 0)
-                System.out.println(i);
+        String str = input.nextLine();
+
+        while (str.length() != 3) {
+            str = str.substring(1, str.length() - 1);
         }
 
+        System.out.println(Math.pow(5, 6));
+
+        System.out.println("SISISI: " + str);
         input.close();
     }
 
