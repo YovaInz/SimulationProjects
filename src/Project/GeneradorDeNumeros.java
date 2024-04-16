@@ -44,10 +44,10 @@ public class GeneradorDeNumeros {
             seed = Integer.parseInt(sb.toString());
             seedStr = sb.toString();
 
-            if (!midsqueredList.contains(seed)) {
-                midsqueredList.add(seed);
-            } else {
-                duplicate = true;
+            if (!midsqueredList.contains(seed)) { // si midsqueredList no tiene este valor
+                midsqueredList.add(seed); // agrega este valor
+            } else { // caso contrario
+                duplicate = true; // se duplicó
             }
             if (seed == 0 || duplicate == true) {
                 repeat = false;
