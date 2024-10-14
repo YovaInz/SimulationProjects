@@ -1,0 +1,41 @@
+* [1;34m2ff5d06[m - [1;32m(5 months ago)[m [37mtinas.java[m [2;37m- YovaInz[m[1;33m (HEAD -> main, origin/main)[m
+* [1;34mb085442[m - [1;32m(6 months ago)[m [37mA mimir[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mc7b62ae[m - [1;32m(6 months ago)[m [37mGeneradorDeNumeros.java[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mc471448[m - [1;32m(6 months ago)[m [37mlicencias.java snapshort0.1[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m00c2a8e[m - [1;32m(6 months ago)[m [37mBlackJack.java snapshot0.4 (correcciones)[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m2168f15[m - [1;32m(6 months ago)[m [37mBlackJack.java snapshot0.3 (falta graficación)[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m884a407[m - [1;32m(6 months ago)[m [37mBlackJack.java snapshort0.2[m [2;37m- YovaInz[m[1;33m[m
+*   [1;34ma75babb[m - [1;32m(6 months ago)[m [37mMerge branch 'main' of https://github.com/YovaInz/SimulationProjects[m [2;37m- YovaInz[m[1;33m[m
+[32m|[m[33m\[m  
+[32m|[m * [1;34mb51215f[m - [1;32m(6 months ago)[m [37mBlackJack.java snapshort0.1[m [2;37m- YovaInz[m[1;33m[m
+[32m|[m * [1;34m5e15018[m - [1;32m(6 months ago)[m [37mDominoGame.java commit[m [2;37m- YovaInz[m[1;33m[m
+* [33m|[m [1;34ma7457ea[m - [1;32m(7 months ago)[m [37mya no se que hacer con mi vida[m [2;37m- YovaInz[m[1;33m[m
+[33m|[m[33m/[m  
+* [1;34m00fd0bc[m - [1;32m(7 months ago)[m [37mDardosBuffon.java update[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m7e4b0be[m - [1;32m(7 months ago)[m [37malmost finished agujas & dardos[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m48c045a[m - [1;32m(7 months ago)[m [37mAgujaBuffon.java snapshot0.1[m [2;37m- YovaInz[m[1;33m[m
+* [1;34md4d6a88[m - [1;32m(7 months ago)[m [37mDelete src/Project/HW110324.class[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m543662a[m - [1;32m(7 months ago)[m [37mDelete src/Project/numaleatorio2.class[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m0ebc5f4[m - [1;32m(7 months ago)[m [37mConsulta.java finished[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mc88987b[m - [1;32m(7 months ago)[m [37mConsulta sin graficos hecho[m [2;37m- YovaInz[m[1;33m[m
+* [1;34md4ddb58[m - [1;32m(7 months ago)[m [37mCreate .classpath[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m75c9bcd[m - [1;32m(7 months ago)[m [37mreset repository[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mc22a6af[m - [1;32m(7 months ago)[m [37mDelete Simulation directory[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m0c9eec7[m - [1;32m(7 months ago)[m [37mDelete .vscode directory[m [2;37m- YovaInz[m[1;33m[m
+* [1;34ma0698c1[m - [1;32m(7 months ago)[m [37mnumaleatorio2.java snapshot 0.1[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m96ca5cf[m - [1;32m(7 months ago)[m [37mLanzarMD.java snapshot finished 100%[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mfbc3b10[m - [1;32m(7 months ago)[m [37mLanzarMD.java finished[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m432a890[m - [1;32m(7 months ago)[m [37mLanzarMD.java snapshot0.1[m [2;37m- YovaInz[m[1;33m[m
+* [1;34mdb42930[m - [1;32m(7 months ago)[m [37mnum_random.java snapshot 1.6 finished 100%[m [2;37m- YovaInz[m[1;33m[m
+* [1;34ma1ffba4[m - [1;32m(7 months ago)[m [37mUpdate num_random.java[m [2;37m- LuisArchuleta[m[1;33m[m
+* [1;34m7c71f79[m - [1;32m(7 months ago)[m [37mnum_random.java snapshot1.4 final[m [2;37m- YovaInz[m[1;33m[m
+*   [1;34mf0dcd93[m - [1;32m(7 months ago)[m [37mnum_random snapshot1.3 NewmanDone[m [2;37m- YovaInz[m[1;33m[m
+[34m|[m[35m\[m  
+[34m|[m * [1;34m9ffa875[m - [1;32m(7 months ago)[m [37mmetodo medios_random hecho[m [2;37m- LuisArchuleta[m[1;33m[m
+* [35m|[m [1;34m562ac5d[m - [1;32m(7 months ago)[m [37mnum_random.java Snapshot.NewmanDone[m [2;37m- YovaInz[m[1;33m[m
+[35m|[m[35m/[m  
+* [1;34m14df7ff[m - [1;32m(7 months ago)[m [37m12/03/2024[m [2;37m- LuisArchuleta[m[1;33m[m
+* [1;34mb31c194[m - [1;32m(7 months ago)[m [37mHW110324.java done[m [2;37m- YovaInz[m[1;33m[m
+* [1;34m6ba6f97[m - [1;32m(7 months ago)[m [37mParachutist.java V1[m [2;37m- YovaInz[m[1;33m[m
+* [1;34ma7cab18[m - [1;32m(7 months ago)[m [37mCreate README.md[m [2;37m- YovaInz[m[1;33m[m
+* [1;34md838c3b[m - [1;32m(7 months ago)[m [37mInitial commit[m [2;37m- YovaInz[m[1;33m[m
